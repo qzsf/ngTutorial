@@ -1,0 +1,32 @@
+<h2>{{title}}</h2>
+<!--<ul>
+    <li *ngFor="#user of users">
+        <span>{{user.name}}:</span>
+        <span> {{user.age}}</span>
+    </li>
+</ul>-->
+<div *ngIf="user">
+    <h3>{{user.name}}</h3>
+    <div>
+        <label>Gender: </label>{{user.gender}}
+    </div>
+    <div>
+        <label>Age: </label>{{user.age}} <plus-minus [inputNum]="user.age" (outputNum)="onAgeChanged($event)"></plus-minus>
+    </div>
+    <div>
+        <label>Email: </label>{{user.email}}
+    </div>
+    <div>
+        <label>Phone: </label>{{user.phone}}
+    </div>
+    <div>
+        <label>Id: </label>{{user._id}}
+    </div>
+    <div>
+        <label>Bio:</label>
+        <p>{{user.about}}</p>
+    </div>
+    <p>
+        <button (click)="gotoUsers()">Back</button>
+    </p>
+</div>
