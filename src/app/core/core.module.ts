@@ -1,13 +1,13 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { UserService } from './user.service';
 
 @NgModule({
     imports: [
         CommonModule,
-        HttpModule
+        HttpClientModule
     ],
     declarations: [],
     providers: [

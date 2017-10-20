@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '../models/user';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 // load and run these three operators, and make them available to the app. they don't really import anything.
@@ -16,24 +16,25 @@ export class UserService {
     users: IUser[];
     errorMessage: string;
 
-    constructor(private _http: Http) {
-        // console.log('UserService');
-        this.getData().subscribe(
-            users => this.users = users,
-            error => this.errorMessage = <any>error
-        );
+    constructor(private _http: HttpClient) {
     }
 
 
-
-    getData(): Observable<IUser[]> {
-        console.log("getdata")
-        return this._http.get(USER_URL)
+    getData(): void {
+        // console.log("getdata");
+        this._http.get<IUser[]>(USER_URL)
+            .map(response => response["result"])
+            // .do(data => console.log("Data: " + JSON.stringify(data)))
+            .catch(this._handleError)
+            .subscribe(
+                users => this.users = users,
+                error => this.errorMessage = <any>error
+            );
             // the map operator takes the raw http response object, and translates it into an array of users
             // <IUser[]> cast the json object to the user array
-            .map((response: Response) => <IUser[]>response.json())
-            //.do(data => console.log("Data: " + JSON.stringify(data)))
-            .catch(this._handleError);
+            // .map((response: Response) => <IUser[]>response.json())
+            // .do(data => console.log("Data: " + JSON.stringify(data)))
+            // .catch(this._handleError);
     }
 
     getUsers(): Observable<IUser[]> {
@@ -51,9 +52,9 @@ export class UserService {
         this.users[index] = theUser;
     }
 
-    private _handleError(error: Response) {
-        console.error(error);
-        return Observable.throw(error.json().error || 'Error');
+    private _handleError(error: HttpErrorResponse) {
+        console.error(error.message);
+        return Observable.throw(error.message || 'Error');
     }
 
 }
