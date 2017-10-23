@@ -6,8 +6,11 @@ import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angu
     styleUrls: ['./plus-minus.component.css']
 })
 export class PlusMinusComponent implements OnInit, OnChanges {
-    @Input() inputNum: number;
-    @Output() outputNum: EventEmitter<number> = new EventEmitter<number>();
+    @Input()
+    inputNum: number;
+
+    @Output()
+    outputNum: EventEmitter<number> = new EventEmitter<number>();
 
     num: number;
 

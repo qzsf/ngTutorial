@@ -1,11 +1,12 @@
 <h2>{{title}}</h2>
 <button (click)="toggleSearch()">Search</button>
-<input *ngIf="searchShow" [(ngModel)]="filter"/>
+<input *ngIf="searchShow" [(ngModel)]="filter" class="form-control col-3 filter"/>
 <span>{{filter}}</span>
 <ul *ngIf="users && users.length">
-    <li *ngFor="let user of users | userFilter:filter" (click)="onSelect(user)">
+    <li *ngFor="let user of users | userFilter:filter" (click)="onSelect(user)" class="col-6">
         <span>{{user.name}}:</span>
         <span>Age: {{user.age}}</span>
         <span>Balance: {{+user.balance | currency:'USD':true}}</span>
     </li>
 </ul>
+<button class="btn" (click)="newUser()">New +</button>

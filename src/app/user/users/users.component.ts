@@ -24,18 +24,22 @@ export class UsersComponent implements OnInit {
 
     ngOnInit() {
         this._userService.getUsers()
-        .subscribe(
-        users => this.users = users,
-        error => this.errorMessage = <any>error
-        );
+            .subscribe(
+            users => this.users = users,
+            error => this.errorMessage = <any>error
+            );
     }
 
-    onSelect(user:IUser){
+    onSelect(user: IUser) {
         this._router.navigate(['/user', user._id]);
     }
 
-    toggleSearch():void {
-    	this.searchShow = !this.searchShow;
+    toggleSearch(): void {
+        this.searchShow = !this.searchShow;
+    }
+
+    newUser(): void {
+        this._router.navigate(['/user/edit/0']);
     }
 
 }

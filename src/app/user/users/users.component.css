@@ -1,3 +1,6 @@
 li{
     cursor: pointer;
 }
+.filter{
+    display: inline-block;
+}

@@ -14,10 +14,9 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class UserDetailComponent implements OnInit, OnDestroy {
 
-    title: string = 'User Details';
+    title: string = 'User Details: ';
     errorMessage: string;
     user: IUser;
-    users: IUser[];
 
     private _subscription: Subscription;
 
@@ -49,5 +48,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     }
 
     gotoUsers() { this._router.navigate(['/user']); }
+
+    editUser(){this._router.navigate(['/user/edit/' + this.user._id])}
 
 }

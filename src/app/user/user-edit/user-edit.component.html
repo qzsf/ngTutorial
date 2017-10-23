@@ -1,0 +1,80 @@
+<h2>
+    {{title}} {{user.name}}</h2>
+<div>
+    <form action="">
+        <div class="row">
+            <div class="form-group col-5">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="user.name">
+            </div>
+            <div class="form-group col-5">
+                <label for="picture">Picture</label>
+                <input type="text" class="form-control" id="picture" name="picture" [(ngModel)]="user.picture">
+            </div>
+            <div class="form-group col-5">
+                <label for="age">Age: </label> {{user.age}}
+                <plus-minus id="age" [inputNum]="user.age" (outputNum)="onAgeChanged($event)"></plus-minus>
+            </div>
+            <div class="form-group col-5">
+                <label for="balance">Balance</label>
+                <input type="text" class="form-control" id="balance" name="balance" [(ngModel)]="user.balance">
+            </div>
+            <div class="form-group col-5">
+                <label for="eyeColor">Eye Color</label>
+                <input type="text" class="form-control" id="eyeColor" name="eyeColor" [(ngModel)]="user.eyeColor">
+            </div>
+            <div class="form-group col-5">
+                <label for="gender">Gender</label>
+                <input type="text" class="form-control" id="gender" name="gender" [(ngModel)]="user.gender">
+            </div>
+            <div class="form-group col-5">
+                <label for="company">Company</label>
+                <input type="text" class="form-control" id="company" name="company" [(ngModel)]="user.company">
+            </div>
+            <div class="form-group col-5">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email" [(ngModel)]="user.email">
+            </div>
+            <div class="form-group col-5">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="user.phone">
+            </div>
+            <div class="form-group col-5">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" name="address" [(ngModel)]="user.address">
+            </div>
+            <div class="form-group col-5">
+                <label for="about">About</label>
+                <input type="text" class="form-control" id="about" name="about" [(ngModel)]="user.about">
+            </div>
+            <div class="form-group col-5">
+                <label for="latitude">Latitude</label>
+                <input type="text" class="form-control" id="latitude" name="latitude" [(ngModel)]="user.latitude">
+            </div>
+            <div class="form-group col-5">
+                <label for="longitude">Longitude</label>
+                <input type="text" class="form-control" id="longitude" name="longitude" [(ngModel)]="user.longitude">
+            </div>
+            <div class="form-group col-5">
+                <label for="fruit">Favorite Fruit</label>
+                <input type="text" class="form-control" id="fruit" name="fruit" [(ngModel)]="user.favoriteFruit">
+            </div>
+            <div class="form-group col-5">
+                <label for="tags">Tags</label>
+                <input type="text" class="form-control" id="tags" name="tags" [(ngModel)]="user.tags">
+            </div>
+            <div class="form-group col-5">
+                <label for="greeting">Greeting</label>
+                <input type="text" class="form-control" id="greeting" name="greeting" [(ngModel)]="user.greeting">
+            </div>
+            <div class="form-group col-5">
+                <label for="friends">Friends</label>
+                <input type="text" class="form-control" id="friends" name="friends" [(ngModel)]="user.friends">
+            </div>
+        </div>
+        <div>
+            <button class="btn-primary" (click)="update()">Submit</button>
+        </div>
+
+    </form>
+</div>

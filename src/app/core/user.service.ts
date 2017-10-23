@@ -27,14 +27,14 @@ export class UserService {
             // .do(data => console.log("Data: " + JSON.stringify(data)))
             .catch(this._handleError)
             .subscribe(
-                users => this.users = users,
-                error => this.errorMessage = <any>error
+            users => this.users = users,
+            error => this.errorMessage = <any>error
             );
-            // the map operator takes the raw http response object, and translates it into an array of users
-            // <IUser[]> cast the json object to the user array
-            // .map((response: Response) => <IUser[]>response.json())
-            // .do(data => console.log("Data: " + JSON.stringify(data)))
-            // .catch(this._handleError);
+        // the map operator takes the raw http response object, and translates it into an array of users
+        // <IUser[]> cast the json object to the user array
+        // .map((response: Response) => <IUser[]>response.json())
+        // .do(data => console.log("Data: " + JSON.stringify(data)))
+        // .catch(this._handleError);
     }
 
     getUsers(): Observable<IUser[]> {
@@ -50,6 +50,10 @@ export class UserService {
     updateUser(theUser: IUser): void {
         let index = this.users.findIndex(user => user._id === theUser._id);
         this.users[index] = theUser;
+    }
+
+    createUser(newUser: IUser): void {
+        this.users.push(newUser);
     }
 
     private _handleError(error: HttpErrorResponse) {

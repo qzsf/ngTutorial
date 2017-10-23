@@ -11,7 +11,7 @@
         <label>Gender: </label>{{user.gender}}
     </div>
     <div>
-        <label>Age: </label>{{user.age}} <plus-minus [inputNum]="user.age" (outputNum)="onAgeChanged($event)"></plus-minus>
+        <label>Age: </label>{{user.age}} 
     </div>
     <div>
         <label>Email: </label>{{user.email}}
@@ -27,6 +27,6 @@
         <p>{{user.about}}</p>
     </div>
     <p>
-        <button (click)="gotoUsers()">Back</button>
+        <button (click)="gotoUsers()">Back</button> <button (click)="editUser()">Edit</button>
     </p>
 </div>
