@@ -6,6 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 git clone https://github.com/qzsf/ngTutorial.git
 
+Or download the zip file directly.
+
 ## Installation
 
 npm install
