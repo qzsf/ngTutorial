@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/of';
 
-const USER_URL = 'assets/users.json';
+const USER_URL = 'api/users.json';
 
 @Injectable()
 export class UserService {
