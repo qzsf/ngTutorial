@@ -10,7 +10,7 @@ Or download the zip file directly.
 
 ## Installation
 
-npm install
+`npm install`
 
 ## Start Development server
 
