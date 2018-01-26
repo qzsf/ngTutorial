@@ -1,3 +1,4 @@
+// a nested component
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

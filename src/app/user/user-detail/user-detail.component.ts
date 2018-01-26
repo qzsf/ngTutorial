@@ -40,13 +40,6 @@ export class UserDetailComponent implements OnInit, OnDestroy {
         console.log("Destroyed");
     }
 
-    onAgeChanged(num:number):void{
-        setTimeout(()=>{
-            console.log("number from nested component: "+ num);
-            this.user.age = num;
-        },1000);
-    }
-
     gotoUsers() { this._router.navigate(['/user']); }
 
     editUser(){this._router.navigate(['/user/edit/' + this.user._id])}

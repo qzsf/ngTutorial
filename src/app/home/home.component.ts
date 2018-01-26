@@ -18,4 +18,7 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
     }
 
+    log(event):void{
+        console.log(event.target.firstChild);
+    }
 }

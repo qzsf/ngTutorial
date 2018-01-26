@@ -1,7 +1,8 @@
 <h2>
     {{title}} {{user.name}}</h2>
 <div>
-    <form action="">
+    <!-- ngSubmit fires on clicking <button> without type="button" -->
+    <form #userForm="ngForm" (ngSubmit)="update()">
         <div class="row">
             <div class="form-group col-5">
                 <label for="name">Name</label>
@@ -73,7 +74,7 @@
             </div>
         </div>
         <div>
-            <button class="btn-primary" (click)="update()">Submit</button>
+            <button type="submit" class="btn-primary">Submit</button>
         </div>
 
     </form>

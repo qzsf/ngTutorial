@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { IUser } from '../../models/user';
 import { UserModel } from '../../models/user-model';
 import { UserService } from '../../core/user.service';
 
 import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/add/operator/switchMap';   // for ParamMap
+
 
 @Component({
     selector: 'app-user-edit',
@@ -16,11 +18,9 @@ export class UserEditComponent implements OnInit {
 
     title: string = 'Edit User: ';
     errorMessage: string;
-    user: IUser;
+    user: IUser = new UserModel();
 
     newUser: boolean = false;
-
-    private _subscription: Subscription;
 
     constructor(
         private _userService: UserService,
@@ -28,13 +28,13 @@ export class UserEditComponent implements OnInit {
         private _route: ActivatedRoute) { }
 
     ngOnInit() {
-        this._subscription = this._route.params.subscribe(params => {
-            let id = params['id'];
+        this._route.paramMap.subscribe(params => {
+            let id = params.get('id');
             if (id != '0') {
                 this._userService.getUser(id)
                     .subscribe(
-                    user => this.user = user,
-                    error => this.errorMessage = <any>error
+                        user => this.user = user,
+                        error => this.errorMessage = <any>error
                     );
             } else {
                 this.user = new UserModel();
@@ -42,6 +42,29 @@ export class UserEditComponent implements OnInit {
                 this.newUser = true;
             }
         });
+
+        // this._route.params.subscribe(params => {
+        //     let id = params['id'];
+        //     if (id != '0') {
+        //         this._userService.getUser(id)
+        //             .subscribe(
+        //                 user => this.user = user,
+        //                 error => this.errorMessage = <any>error
+        //             );
+        //     } else {
+        //         this.user = new UserModel();
+        //         this.title = 'New User: ';
+        //         this.newUser = true;
+        //     }
+        // });
+
+        // this._route.paramMap
+        //     .switchMap((params: ParamMap) =>
+        //         this._userService.getUser(params.get('id'))
+        // ).subscribe(
+        //     user => this.user = user,
+        //     error => this.errorMessage = <any>error
+        // );
     }
 
     update(): void {

@@ -8,7 +8,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutComponent },
-    { path: 'user', loadChildren: 'app/user/user.module#UserModule' },
+    // { path: 'user', loadChildren: 'app/user/user.module#UserModule' },   // for lazy loading
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];
