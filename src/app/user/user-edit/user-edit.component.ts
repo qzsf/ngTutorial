@@ -18,7 +18,7 @@ export class UserEditComponent implements OnInit {
 
     title: string = 'Edit User: ';
     errorMessage: string;
-    user: IUser = new UserModel();
+    user: IUser;
 
     newUser: boolean = false;
 
