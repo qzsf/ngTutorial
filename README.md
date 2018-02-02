@@ -14,4 +14,4 @@ Or download the zip file directly.
 
 ## Start Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` to start the dev server. Navigate to `http://localhost:4200/`. The app will auto-reload as you edit the source files.
